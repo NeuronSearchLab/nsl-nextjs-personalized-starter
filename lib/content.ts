@@ -1,4 +1,4 @@
-export type Article = { id: string; title: string; summary: string; category: string; readTime: string; accent: string };
+export type Article = { id: string; nslItemId?: number; title: string; summary: string; category: string; readTime: string; accent: string };
 export const content: Article[] = [
   { id: 'football-pressing', title: 'Why pressing systems are changing football again', summary: 'The tactical rotations behind this season’s most aggressive teams.', category: 'Football', readTime: '6 min', accent: '#d7ff64' },
   { id: 'design-calm-software', title: 'The quiet craft of calm software', summary: 'Interfaces that help people make decisions without demanding attention.', category: 'Design', readTime: '5 min', accent: '#b9d6ff' },
@@ -8,4 +8,4 @@ export const content: Article[] = [
   { id: 'football-set-pieces', title: 'Football’s set-piece laboratory', summary: 'How specialist coaches find goals in the margins.', category: 'Football', readTime: '6 min', accent: '#ffd978' },
 ];
 export const byId = new Map(content.map(article => [article.id, article]));
-export const nslItems = content.map(article => ({ id: article.id, name: article.title, description: article.summary, metadata: { category: article.category, readTime: article.readTime } }));
+export const nslItems = content.map(article => ({ name: article.title, description: article.summary, metadata: { source_item_id: article.id, category: article.category, readTime: article.readTime } }));
